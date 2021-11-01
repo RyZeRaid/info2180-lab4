@@ -1,23 +1,25 @@
 window.onload = function(){
 
-    let button = document.querySelector(".btn");
+    const form = document.getElementById('avengerForm')
 
-    button.addEventListener('click', onClick);
+    form.addEventListener('submit', onClick);
 
     function onClick(e){
+        e.preventDefault();
 
-        fetch("superheroes.php")
-            .then(response => {
-                if (response.ok){
-                    return response.text()
-                }else {
-                    return Promise.reject("Something went wrong")
-                }
-            })
-            .then(data => {
-                alert(data)
-            })
-            .catch(error => console.log('There was an error: ' + error));
-        
+        const formData = new FormData(this)
+
+        fetch('superheroes.php', {
+            method: 'post',
+            body: formData
+        }).then(function (response) {
+            return response.text();
+
+        }).then(function(text){
+            let result = document.getElementById("result")
+            result.innerHTML = text;
+        }).catch(function(error){
+            console.error(error);
+        })      
     }
 }

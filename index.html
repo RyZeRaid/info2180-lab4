@@ -9,9 +9,26 @@
     <title>Super Heroes</title>
 </head>
 <body>
-    <h1>Avengers Character Search</h1>
-
-    <button class="btn">search</button>
+    <div class="header">
+        <h1>Avengers Character Search</h1>
+    </div>
     
+    <div class="result">
+        <p>Search by Full Name or Alias</p>
+    
+
+        <form class="form" id="avengerForm">
+            <input name="search" type="text" id="search" placeholder="e.g. Captain Amreica or Steve Rogers">
+            <button name="submit" type="submit" class="btn">search</button>
+        </form>
+
+
+        <h2>RESULT</h2>
+
+        <hr>
+
+        <div id="result"></div>
+    </div>
+      
 </body>
 </html>
